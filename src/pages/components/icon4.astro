@@ -1,0 +1,55 @@
+---
+// empty frontmatter for future use
+---
+
+<!-- Diamond icon from Lucide -->
+
+<svg id="theDiamond"
+xmlns="http://www.w3.org/2000/svg"
+width="24"
+height="24"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+class="lucide lucide-diamond-icon lucide-diamond">
+
+    <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0Z"/>
+
+</svg>
+
+<!-- GSAP Scripting -->
+<script>
+    import gsap from 'gsap';
+
+    gsap.from('#theDiamond path', {
+        rotation: 180,
+        transformOrigin: 'center',
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+    });
+
+    // Hover animations
+    const diamond = document.querySelector('#theDiamond');
+
+    diamond.addEventListener('mouseenter', () => {
+        gsap.to('#theDiamond path', {
+            rotation: 45,
+            transformOrigin: 'center',
+            duration: 0.4,
+            ease: 'power2.out'
+        });
+    });
+
+    diamond.addEventListener('mouseleave', () => {
+        gsap.to('#theDiamond path', {
+            rotation: 0,
+            transformOrigin: 'center',
+            duration: 0.4,
+            ease: 'power2.in'
+        });
+    });
+</script>

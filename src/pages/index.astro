@@ -1,0 +1,32 @@
+---
+// server side code at build time
+import Square from './components/icon1.astro'
+import Circle from './components/icon2.astro'
+import Triangle from './components/icon3.astro'
+import Diamond from './components/icon4.astro'
+import Hexagon from './components/icon5.astro'
+
+import '../styles/icons.css'
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Animated SVG Icon Set</title>
+	</head>
+	<body>
+
+		<!-- Load icons as separate components -->
+		<div class="icon-grid">
+			<Square />
+			<Circle />
+			<Triangle />
+			<Diamond />
+			<Hexagon />
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,55 @@
+---
+// empty frontmatter for future use
+---
+
+<!-- Hexagon icon from Lucide -->
+
+<svg id="theHexagon"
+xmlns="http://www.w3.org/2000/svg"
+width="24"
+height="24"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+class="lucide lucide-hexagon-icon lucide-hexagon">
+
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+
+</svg>
+
+<!-- GSAP Scripting -->
+<script>
+    import gsap from 'gsap';
+
+    gsap.from('#theHexagon path', {
+        scale: 2,
+        opacity: 0,
+        transformOrigin: 'center',
+        duration: 0.7,
+        ease: 'elastic.out(1, 0.5)'
+    });
+
+    // Hover animations
+    const hexagon = document.querySelector('#theHexagon');
+
+    hexagon.addEventListener('mouseenter', () => {
+        gsap.to('#theHexagon path', {
+            rotation: 30,
+            transformOrigin: 'center',
+            duration: 0.4,
+            ease: 'power2.out'
+        });
+    });
+
+    hexagon.addEventListener('mouseleave', () => {
+        gsap.to('#theHexagon path', {
+            rotation: 0,
+            transformOrigin: 'center',
+            duration: 0.4,
+            ease: 'power2.in'
+        });
+    });
+</script>

@@ -1,26 +1,75 @@
-/* Layout */
-
+/* Whole page */
 body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f8f8;
-    color: #333;
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
 }
 
-.icon-grid {
-    display: flex;
-    gap: 3rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+/* All icons */
+svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  overflow: visible;
+  opacity: 0;
 }
 
-/* Icon sizing */
+/* svg:hover {
+  transform: scale(1.15);
+} */
 
-.lucide {
-    width: 100px;
-    height: 100px;
+/* Telescope */
+.lucide-telescope {
+  color: #00e5ff;
+  filter:
+    drop-shadow(0 0 8px #00e5ff)
+    drop-shadow(0 0 20px #00e5ff);
+}
+
+/* Eclipse */
+.lucide-eclipse {
+  color: #ff00ff;
+  filter:
+    drop-shadow(0 0 8px #ff00ff)
+    drop-shadow(0 0 20px #ff00ff);
+}
+
+/* Rocket */
+.lucide-rocket {
+  color: #ff5e00;
+  filter:
+    drop-shadow(0 0 8px #ff5e00)
+    drop-shadow(0 0 20px #ff5e00);
+}
+
+/* Astroid */
+.lucide-astroid {
+  color: #ffe600;
+  filter:
+    drop-shadow(0 0 8px #ffe600)
+    drop-shadow(0 0 20px #ffe600);
+}
+
+/* Orbit */
+.lucide-orbit {
+  color: #39ff14;
+  filter:
+    drop-shadow(0 0 8px #39ff14)
+    drop-shadow(0 0 20px #39ff14);
+}
+
+.icon-stage svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
 }

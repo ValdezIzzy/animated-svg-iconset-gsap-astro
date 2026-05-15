@@ -2,44 +2,23 @@
 // frontmatter for later use
 ---
 
-<!-- SVG code for a circle 
--->
-<svg id="theCircle"
+<!-- SVG code for an Eclipse -->
 
-xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-icon lucide-circle">
-    
-    <circle cx="12" cy="12" r="10"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eclipse-icon lucide-eclipse" id="theEclipse">
+  <g id= "eclipse">
+  <circle cx="12" cy="12" r="10"/>
+  <path d="M12 2a7 7 0 1 0 10 10"/>
+  </g>
 </svg>
 
 <!-- GSAP Scripting -->
-<script>
-    // import GSAP
-    import gsap from 'gsap';
+<script type="module">
+    import { addIconToTimeline } from "/sharedTimeline.js";
 
-    // animate it
-    gsap.from('#theCircle circle', {
-        x: -200
-    });
-
-    // Hover animations
-    const circle = document.querySelector('#theCircle');
-
-    circle.addEventListener('mouseenter', () => {
-        gsap.to('#theCircle circle', {
-            scale: 1.2,
-            transformOrigin: 'center',
-            duration: 0.3,
-            ease: 'power2.out'
-        });
-    });
-
-    circle.addEventListener('mouseleave', () => {
-        gsap.to('#theCircle circle', {
-            scale: 1,
-            transformOrigin: 'center',
-            duration: 0.3,
-            ease: 'power2.in'
-        });
+    addIconToTimeline((tl) => {
+        tl.set('.lucide-eclipse', {autoAlpha: 0});
+        tl.fromTo('.lucide-eclipse', {autoAlpha: 0}, {autoAlpha: 1, duration: 0.5});
+        tl.to('#eclipse', { rotation: 720, transformOrigin: "center center", ease: "easeOut", duration: .8});
+        tl.fromTo('.lucide-eclipse', {autoAlpha: 1}, {autoAlpha: 0, duration: 0.5});
     });
 </script>

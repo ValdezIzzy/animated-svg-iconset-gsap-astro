@@ -2,51 +2,31 @@
 // empty frontmatter for future use
 ---
 
-<!-- Triangle icon from Lucide -->
+<!-- Rocket icon from Lucide -->
 
-<svg id="theTriangle"
-xmlns="http://www.w3.org/2000/svg"
-width="24"
-height="24"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round"
-class="lucide lucide-triangle-icon lucide-triangle">
-
-    <path d="M13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket-icon lucide-rocket" id="theRocket">
+  
+ <g class="rocket">
+  <g id="rocket">
+  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+  <path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/>
+  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/>
+  </g>
+    
+  <path id="rocket-flame" d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/>
 </svg>
+ </g>
 
 <!-- GSAP Scripting -->
-<script>
-    import gsap from 'gsap';
+<script type="module">
+    import { addIconToTimeline } from "/sharedTimeline.js";
 
-    gsap.from('#theTriangle path', {
-        y: 200,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out'
-    });
-
-    // Hover animations
-    const triangle = document.querySelector('#theTriangle');
-
-    triangle.addEventListener('mouseenter', () => {
-        gsap.to('#theTriangle path', {
-            y: -4,
-            duration: 0.3,
-            ease: 'power2.out'
-        });
-    });
-
-    triangle.addEventListener('mouseleave', () => {
-        gsap.to('#theTriangle path', {
-            y: 0,
-            duration: 0.3,
-            ease: 'power2.in'
-        });
+    addIconToTimeline((tl) => {
+        tl.set('.lucide-rocket', {autoAlpha: 0});
+        tl.fromTo('.lucide-rocket', {autoAlpha: 0}, {autoAlpha: 1, duration: 0.5});
+        tl.from('#rocket', {rotation: -45, duration: 1, transformOrigin: 'center center'});
+        tl.fromTo('#rocket-flame', {opacity: 0}, {opacity: 1, duration: 0.75, ease: 'easeIn'}, '>');
+        tl.to('.lucide-rocket', { x: 600, y: -700, scale: 0.2, duration: 0.5, ease: 'power4.in'}, '>');
+        tl.fromTo('.lucide-rocket', {autoAlpha: 1}, {autoAlpha: 0, duration: 0.5});
     });
 </script>

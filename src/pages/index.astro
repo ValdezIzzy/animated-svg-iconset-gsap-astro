@@ -1,12 +1,14 @@
 ---
 // server side code at build time
-import Square from './components/icon1.astro'
-import Circle from './components/icon2.astro'
-import Triangle from './components/icon3.astro'
-import Diamond from './components/icon4.astro'
-import Hexagon from './components/icon5.astro'
+import Telescope from './components/icon1.astro'
+import Eclipse from './components/icon2.astro'
+import Rocket from './components/icon3.astro'
+import Astroid from './components/icon4.astro'
+import Orbit from './components/icon5.astro'
 
 import '../styles/icons.css'
+
+const gsapScript = '<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>'
 ---
 <html lang="en">
 	<head>
@@ -18,14 +20,15 @@ import '../styles/icons.css'
 		<title>Animated SVG Icon Set</title>
 	</head>
 	<body>
+		<div set:html={gsapScript}></div>
 
 		<!-- Load icons as separate components -->
 		<div class="icon-grid">
-			<Square />
-			<Circle />
-			<Triangle />
-			<Diamond />
-			<Hexagon />
+			<Telescope />
+			<Eclipse />
+			<Rocket />
+			<Astroid />
+			<Orbit />
 		</div>
 
 	</body>

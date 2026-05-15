@@ -2,54 +2,21 @@
 // empty frontmatter for future use
 ---
 
-<!-- Diamond icon from Lucide -->
+<!-- Astroid icon from Lucide -->
 
-<svg id="theDiamond"
-xmlns="http://www.w3.org/2000/svg"
-width="24"
-height="24"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round"
-class="lucide lucide-diamond-icon lucide-diamond">
-
-    <path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0Z"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-astroid-icon lucide-astroid" id="theAstroid">
+  <path id="star" d="M12.983 21.186a1 1 0 0 1-1.966 0 10 10 0 0 0-8.203-8.203 1 1 0 0 1 0-1.966 10 10 0 0 0 8.203-8.203 1 1 0 0 1 1.966 0 10 10 0 0 0 8.203 8.203 1 1 0 0 1 0 1.966 10 10 0 0 0-8.203 8.203"/>
 </svg>
 
 <!-- GSAP Scripting -->
-<script>
-    import gsap from 'gsap';
+<script type="module">
+    import { addIconToTimeline } from "/sharedTimeline.js";
 
-    gsap.from('#theDiamond path', {
-        rotation: 180,
-        transformOrigin: 'center',
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.out'
-    });
-
-    // Hover animations
-    const diamond = document.querySelector('#theDiamond');
-
-    diamond.addEventListener('mouseenter', () => {
-        gsap.to('#theDiamond path', {
-            rotation: 45,
-            transformOrigin: 'center',
-            duration: 0.4,
-            ease: 'power2.out'
-        });
-    });
-
-    diamond.addEventListener('mouseleave', () => {
-        gsap.to('#theDiamond path', {
-            rotation: 0,
-            transformOrigin: 'center',
-            duration: 0.4,
-            ease: 'power2.in'
-        });
+    addIconToTimeline((tl) => {
+        tl.set('.lucide-astroid', {autoAlpha: 0});
+        tl.fromTo('.lucide-astroid', {autoAlpha: 0}, {autoAlpha: 1, duration: 0.5});
+        tl.fromTo('#star', { opacity: 0 }, { opacity: 1, yoyo: true, repeat: 4, duration: .5 });
+        tl.to('#star', {transformOrigin: 'center center', scale: 250, duration: 1});
+        tl.fromTo('.lucide-astroid', {autoAlpha: 1}, {autoAlpha: 0, duration: 0.5});
     });
 </script>

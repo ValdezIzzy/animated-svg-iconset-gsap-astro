@@ -15,5 +15,7 @@
 ## Citations
 * Icons from [Lucide](https://lucide.dev/)
 * Animation library from [GreenSock](https://greensock.com/)
+* Favicon from [IconBuddy](https://iconbuddy.com/)
+* File fixes and bugs from [ChatGPT](https://chatgpt.com/)
 
 
